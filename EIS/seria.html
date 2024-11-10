@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главное меню</title>
+    <style>        
+    body {
+        background-color: black;
+        background-image: url('fon.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Занимает всю высоту экрана */
+        margin: 0;
+    
+        }
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Стили для каждой карточки */
+        .menu-item {
+            width: 200px;
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .menu-item p {
+            margin: 8px 0;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="menu-container">
+    <div class="menu-item" onclick="window.location.href='1.html'">
+        <img src="1.jpg" alt="Обложка 1">
+        <p>1 Сезон</p>
+    </div>
+    <div class="menu-item" onclick="window.location.href='2.html'">
+        <img src='2.jpg' alt="Обложка 2">
+        <p>2 Сезон </p>
+    </div>
+</body>
+</html>

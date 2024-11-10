@@ -1,0 +1,30 @@
+        body {
+            background-color: black;
+            background-image: url('fon.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Занимает всю высоту экрана */
+            margin: 0;
+        
+        }
+
+        video {
+            width: 80%; /* Занимает 80% ширины контейнера */
+        }
+        iframe {
+            width: 560px;
+            height: 315px;
+            margin: 0 auto; /* Центрирование по горизонтали */
+        }
+        .white-text {
+            color: white;
+        }
+        .white-big-text {
+            color: white;
+            font-size: 36px; /* Размер текста, можно изменить */
+        }
+                
