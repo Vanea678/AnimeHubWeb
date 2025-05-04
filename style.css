@@ -1,0 +1,418 @@
+/* --- Общие стили и переменные --- */
+:root {
+    /* Общие переменные */
+    --primary-purple: #8e44ad;
+    --secondary-purple: #9b59b6;
+    --dark-purple: #4a1f63;
+    --hover-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+
+    /* Переменные для тем */
+    --bg-color: #1a1a2e; /* По умолчанию темная */
+    --text-color: #e0e0e0;
+    --card-bg: #2a2a3e;
+    --card-text-primary: #e0e0e0;
+    --card-text-secondary: #aaa;
+    --header-bg: #4a1f63;
+    --header-text: #fff;
+    --button-bg: #8e44ad;
+    --button-text: #fff;
+    --button-hover-bg: #9b59b6;
+    --input-bg: #f1eaf5;
+    --input-text: #333;
+    --input-border: #8e44ad;
+    --modal-bg: #ffffff;
+    --modal-text: #333;
+    --modal-close-hover: #4a1f63;
+    --footer-bg: #4a1f63;
+    --footer-text: #bbb;
+    --border-color: #555;
+}
+
+body[data-theme="light"] {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --card-text-primary: #333;
+    --card-text-secondary: #666;
+    --header-bg: #e1d4e9; /* Светло-фиолетовый для шапки */
+    --header-text: #4a1f63;
+    --button-bg: #9b59b6;
+    --button-text: #fff;
+    --button-hover-bg: #8e44ad;
+    --input-bg: #ffffff;
+    --input-text: #333;
+    --input-border: #cccccc;
+    --modal-bg: #f9f9f9;
+    --modal-text: #333;
+    --modal-close-hover: #555;
+    --footer-bg: #e1d4e9;
+    --footer-text: #555;
+    --border-color: #ddd; /* Граница в светлой теме */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color); /* Используем переменную */
+    color: var(--text-color); /* Используем переменную */
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход темы */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--secondary-purple);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    /* Цвет заголовков будет наследоваться или задаваться конкретнее */
+}
+h2 { /* Заголовок секции */
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-purple);
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+
+/* --- Шапка --- */
+header {
+    background-color: var(--header-bg); /* Переменная */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-purple);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header .logo h1 {
+    margin: 0;
+    color: var(--header-text); /* Переменная */
+    font-size: 1.8em;
+    transition: color 0.3s ease;
+}
+
+/* --- Поиск --- */
+.search-bar {
+    display: flex;
+    flex-grow: 0.5;
+    max-width: 600px;
+}
+
+.search-bar input[type="search"] {
+    padding: 10px 15px;
+    border: 1px solid var(--input-border); /* Переменная */
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+    font-size: 1em;
+    background-color: var(--input-bg); /* Переменная */
+    color: var(--input-text); /* Переменная */
+    outline: none;
+    flex-grow: 1;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.search-bar input[type="search"]::placeholder {
+    color: var(--card-text-secondary); /* Используем цвет второстепенного текста карточки */
+}
+
+
+.search-bar button {
+    padding: 10px 15px;
+    border: 1px solid var(--primary-purple);
+    background-color: var(--button-bg); /* Переменная */
+    color: var(--button-text); /* Переменная */
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+    font-size: 1em;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: var(--button-hover-bg); /* Переменная */
+    border-color: var(--button-hover-bg);
+}
+.search-bar button:active { /* Обратная связь при нажатии */
+    transform: scale(0.95);
+}
+
+/* --- Навигация пользователя --- */
+.user-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между кнопками */
+}
+
+.user-nav button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.user-nav button:hover {
+    background-color: var(--button-hover-bg);
+}
+.user-nav button:active {
+     transform: scale(0.95);
+}
+
+/* Кнопка темы */
+#theme-toggle-button {
+    background-color: transparent;
+    border: 1px solid var(--button-text); /* Граница в цвет текста */
+    color: var(--button-text);
+    padding: 8px 10px; /* Чуть меньше отступы для иконки */
+    line-height: 1; /* Убрать лишнюю высоту строки */
+}
+#theme-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Легкий фон при наведении */
+}
+body[data-theme="light"] #theme-toggle-button {
+    border-color: var(--header-text); /* Граница в цвет текста для светлой темы */
+    color: var(--header-text);
+}
+body[data-theme="light"] #theme-toggle-button:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- Сетка Видео --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.video-item {
+    background-color: var(--card-bg); /* Переменная */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Мягкая тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color); /* Добавим границу */
+}
+.video-item.hidden-item {
+    display: none;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow);
+}
+/* Добавим эффект при клике (можно использовать JS для добавления/удаления класса) */
+.video-item:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.video-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.video-item h3 {
+    font-size: 1.1em;
+    margin: 10px 15px 5px 15px;
+    color: var(--card-text-primary); /* Переменная */
+    transition: color 0.3s ease;
+}
+
+.video-item p {
+    font-size: 0.9em;
+    color: var(--card-text-secondary); /* Переменная */
+    margin: 0 15px 10px 15px;
+    transition: color 0.3s ease;
+}
+.video-item p:last-child {
+      margin-bottom: 15px;
+}
+
+/* --- Сообщение "Ничего не найдено" --- */
+.no-results {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--card-text-secondary);
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px dashed var(--border-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.no-results.hidden {
+    display: none;
+}
+
+/* --- Кнопка "Загрузить еще" --- */
+.load-more-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.load-more-button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.load-more-button:hover {
+    background-color: var(--button-hover-bg);
+}
+.load-more-button:active {
+      transform: scale(0.97);
+}
+.load-more-button.hidden { /* Скрываем кнопку, если больше нечего грузить */
+    display: none;
+}
+
+
+/* --- Подвал --- */
+footer {
+    background-color: var(--footer-bg); /* Переменная */
+    color: var(--footer-text); /* Переменная */
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color); /* Переменная */
+    transition: background-color 0.3s ease, color 0.3s ease, border-top-color 0.3s ease;
+}
+
+/* --- Стили Модального Окна --- */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Чуть темнее фон */
+    z-index: 1040;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: var(--modal-bg);
+    color: var(--modal-text);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    width: 90%;
+    /* Увеличим максимальную ширину */
+    max-width: 800px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    /* Добавим внутренний скролл, если контент не помещается */
+    max-height: 90vh; /* Ограничение по высоте */
+    display: flex; /* Чтобы flex работал внутри */
+    flex-direction: column;
+}
+
+.modal.hidden,
+.modal-backdrop.hidden {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+    pointer-events: none;
+}
+
+.modal:not(.hidden),
+.modal-backdrop:not(.hidden) {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+.modal-backdrop:not(.hidden) {
+      transform: none;
+}
+
+/* Контейнер содержимого модалки */
+.modal-content {
+    padding: 0; /* Убираем общий padding, будем задавать для секций */
+    overflow-y: auto; /* Включаем скролл для контента */
+    flex-grow: 1; /* Занимает доступное место в flex-контейнере modal */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.2em;
+    color: #ccc; /* Светлее на темном фоне плеера */
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 10; /* Поверх картинки */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Тень для читаемости */
+}
+.close-button:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+body[data-theme="light"] .close-button {
+      color: #aaa;
+      text-shadow: none;
+}
+body[data-theme="light"] .close-button:hover {
+       color: var(--modal-close-hover);
+}
+
+/* Область "плеера" */
+.modal-player-area {
+    position: relative; /* Для позиционирования оверлея */
+    background-color: #000; /* Черный фон как у плеера */
+    line-height: 0; /* Убрать лишние отступы у img */
+}
+.modal-player-area img {
+    display: block;
+    width: 100%;
+    max-height: 450px; /* Макс высота плеера */
+    object-fit: contain; /* Чтобы картинка вписалась */
+    border-top

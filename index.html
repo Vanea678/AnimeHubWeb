@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аниме Фиолетовия</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-theme="dark">
+
+    <header>
+        <div class="logo">
+            <h1>AnimeHubWeb</h1>
+        </div>
+        <form id="search-form" class="search-bar">
+            <input type="search" id="search-input" placeholder="Поиск аниме...">
+            <button type="submit" aria-label="Поиск"><i class="fas fa-search"></i></button>
+        </form>
+        <nav class="user-nav">
+              <button id="theme-toggle-button" aria-label="Сменить тему">
+                  <i class="fas fa-sun"></i>
+              </button>
+            <button class="login-button">Войти</button>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Популярное сейчас</h2>
+        <a href="https://www.anilibria.tv/public/iframe.php?id=9906" class="video-item" data-id="aot-final" data-title="Восход Луны" data-description="">
+            <img src="https://www.anilibria.tv/storage/releases/posters/9920/prJ5BnhMI4420p0KJqcoUOHqUJGXJvWB.jpg" alt="Восход Луны" class="video-thumbnail" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover;">
+             <h3>Восход Луны</h3>
+            <p></p> <p> &bull;</p>
+        </a>
+        <a href="https://www.anilibria.tv/public/iframe.php?id=9956" class="video-item" data-id="aot-final" data-title="Соседнему королевству продали святую, помолвку которой разо..." data-description="">
+             <img src="https://www.anilibria.tv/storage/releases/posters/9956/ayeZghC13Eh2EJfWmyuWJR4u2TnTAmlO.jpg" alt="Соседнему королевству продали святую, помолвку которой разо..." class="video-thumbnail" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover;">
+             <h3>Соседнему королевству продали святую, помолвку которой разо...</h3>
+            <p></p> <p>1.5M просмотров &bull; 2 дня назад</p>
+        </a>
+
+
+        <p id="no-results-message" class="no-results hidden">По вашему запросу ничего не найдено.</p>
+
+        <div class="load-more-container">
+            <button id="load-more-button" class="load-more-button">Загрузить еще</button>
+        </div>
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-button">&times;</span>
+
+            <div id="modal-player-area" class="modal-player-area">
+                <img id="modal-player-img" src="" alt="Просмотр аниме">
+                 <div class="player-overlay">Нажмите для просмотра (симуляция)</div>
+            </div>
+
+            <div class="modal-video-info">
+                <h2 id="modal-title">Название Аниме</h2>
+                <p id="modal-description">Описание аниме здесь...</p>
+            </div>
+
+            <hr class="modal-divider">
+
+            <div id="comment-section" class="comment-section">
+                <h3>Комментарии</h3>
+                <div id="comments-list" class="comments-list">
+                    <p class="no-comments hidden">Комментариев пока нет. Будьте первым!</p>
+                </div>
+                <form id="comment-form" class="comment-form">
+                    <textarea id="comment-input" placeholder="Введите ваш комментарий..." required rows="3"></textarea>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
